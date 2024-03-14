@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { ColorRing } from "react-loader-spinner";
 
 const Homepage = () => {
@@ -15,7 +14,7 @@ const Homepage = () => {
         } else {
             fetchJokes();
         }
-    });
+    }, []);
 
     const fetchJokes = async () => {
         try {
