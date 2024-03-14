@@ -9,8 +9,13 @@ const Homepage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetchJokes();
-    }, []);
+        const authToken = localStorage.getItem("authToken");
+        if (!authToken) {
+            navigate("/login"); // Redirect to login page if no authToken
+        } else {
+            fetchJokes();
+        }
+    });
 
     const fetchJokes = async () => {
         try {
